@@ -1,0 +1,30 @@
+{
+	"author": {
+		"name": "Hanul"
+	},
+	"bugs": {
+		"url": "https://github.com/Hanul/Cordova-UnityAds-Plugin/issues"
+	},
+	"cordova": {
+		"platforms": [
+			"android",
+			"ios"
+		]
+	},
+	"description": "Cordova UnityAds Plugin",
+	"homepage": "https://github.com/Hanul/Cordova-UnityAds-Plugin",
+	"keywords": [
+		"cordova",
+		"unityads",
+		"ecosystem:cordova",
+		"cordova-android",
+		"cordova-ios"
+	],
+	"license": "MIT",
+	"name": "Cordova-UnityAds-Plugin",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/aHanul/Cordova-UnityAds-Plugin.git"
+	},
+	"version": "0.0.1"
+}

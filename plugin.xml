@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin
+xmlns="http://www.phonegap.com/ns/plugins/1.0"
+xmlns:android="http://schemas.android.com/apk/res/android"
+id="CordovaUnityAdsPlugin"
+version="0.0.1">
+	
+	<name>Cordova UnityAds Plugin</name>
+	<author>Hanul</author>
+	<license>MIT</license>
+	<repo>https://github.com/Hanul/Cordova-UnityAds-Plugin.git</repo>
+	<issue>https://github.com/Hanul/Cordova-UnityAds-Plugin/issues</issue>
+	
+	<js-module src="www/UnityAds.js" name="UnityAds">
+		<clobbers target="UnityAds" />
+	</js-module>
+	
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="CordovaUnityAdsPlugin">
+				<param name="android-package" value="me.hanul.cordova.CordovaUnityAdsPlugin" />
+			</feature>
+		</config-file>
+		<source-file src="src/android/CordovaUnityAdsPlugin.java" target-dir="src/me/hanul/cordova" />
+		<source-file src="src/android/unity-ads.jar" target-dir="libs" />
+	</platform>
+	
+</plugin>
