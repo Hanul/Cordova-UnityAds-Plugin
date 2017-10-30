@@ -9,10 +9,14 @@ module.exports = {
 	},
 	
 	checkIsCanShow : (callback) => {
-		cordova.exec(callback, undefined, 'CordovaUnityAdsPlugin', 'checkIsCanShow', []);
+		cordova.exec((ret) => {
+			callback(ret === 1);
+		}, undefined, 'CordovaUnityAdsPlugin', 'checkIsCanShow', []);
 	},
 	
 	show : (callback) => {
-		cordova.exec(callback, undefined, 'CordovaUnityAdsPlugin', 'show', []);
+		cordova.exec((ret) => {
+			callback(ret === 1);
+		}, undefined, 'CordovaUnityAdsPlugin', 'show', []);
 	}
 };

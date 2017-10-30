@@ -31,11 +31,25 @@ public class CordovaUnityAdsPlugin extends CordovaPlugin implements IUnityAdsLis
 	}
 	
 	public void init(final String gameId) {
-		UnityAds.init(this.cordova.getActivity(), gameId, (IUnityAdsListener) CordovaUnityAdsPlugin.this);
+		
+		cordova.getActivity().runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				
+				UnityAds.init(cordova.getActivity(), gameId, (IUnityAdsListener) CordovaUnityAdsPlugin.this);
+			}
+		});
 	}
 
 	public void setTestMode(final boolean isTestMode) {
-		UnityAds.setTestMode(isTestMode);
+		
+		cordova.getActivity().runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				
+				UnityAds.setTestMode(isTestMode);
+			}
+		});
 	}
 
 	public int checkIsCanShow() {
@@ -43,15 +57,24 @@ public class CordovaUnityAdsPlugin extends CordovaPlugin implements IUnityAdsLis
 	}
 
 	public void show(final CallbackContext callbackContext) {
-		if (UnityAds.canShow() == true) {
-			UnityAds.setZone("rewardedVideo");
-			UnityAds.show();
-		}
+		
+		nowCallbackContext = callbackContext;
+		
+		cordova.getActivity().runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				
+				if (UnityAds.canShow() == true) {
+					UnityAds.setZone("rewardedVideo");
+					UnityAds.show();
+				}
+			}
+		});
 	}
 
 	@Override
 	public void onVideoCompleted(String itemKey, boolean skipped) {
-		callbackContext.success(skipped);
+		nowCallbackContext.success(skipped == true ? 1 : 0);
 	}
 
 	@Override
