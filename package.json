@@ -21,7 +21,7 @@
 		"cordova-ios"
 	],
 	"license": "MIT",
-	"name": "Cordova-UnityAds-Plugin",
+	"name": "cordova-unityAds-plugin",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/aHanul/Cordova-UnityAds-Plugin.git"
